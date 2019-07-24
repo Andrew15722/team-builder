@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
+import { members } from './Data.js';
 
 function Form() {
 	const [ member, setMember ] = useState({
-		name: 'andrew',
+		name: 'Andrew',
 		email: 'andrew@react.com',
-		role: 'Full Stack Developer'
+		role: 'UI Developer'
 	});
+
+	function handleChange(event) {
+		const updatedMember = { ...member, [event.target.name]: event.target.value };
+		console.log('Handle Change Function:', event.target.name, event.target.value, updatedMember);
+		setMember(updatedMember);
+	}
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		console.log('name', member);
+	}
+
 	console.log(member);
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<fieldset>
 				<legend>Team Form</legend>
 				<div className="form-group">
-					<label for="name" className="form-group-label">
+					<label htmlFor="name" className="form-group-label">
 						Name:
 						<div>
 							<input
@@ -21,10 +34,11 @@ function Form() {
 								name="name"
 								placeholder="Enter your name"
 								value={member.name}
+								onChange={handleChange}
 							/>
 						</div>
 					</label>
-					<label for="email" className="form-group-label">
+					<label htmlFor="email" className="form-group-label">
 						Email:
 						<div>
 							<input
@@ -33,10 +47,11 @@ function Form() {
 								name="email"
 								placeholder="Enter your email"
 								value={member.email}
+								onChange={handleChange}
 							/>
 						</div>
 					</label>
-					<label for="role" className="form-group-label">
+					<label htmlFor="role" className="form-group-label">
 						Role:
 						<div>
 							<input
@@ -45,10 +60,14 @@ function Form() {
 								name="role"
 								placeholder="Your role"
 								value={member.role}
+								onChange={handleChange}
 							/>
 						</div>
 					</label>
 				</div>
+				<button type="submit" className="form-btn">
+					Submit
+				</button>
 			</fieldset>
 		</form>
 	);
