@@ -19,7 +19,9 @@ const MemberCard = (props) => (
 						<td>{member.role}</td>
 						<td>{member.email}</td>
 						<td>
-							<button className="button muted-button">Edit</button>
+							<button onClick={() => props.editRow(member)} className="button muted-button">
+								Edit
+							</button>
 							{/* the onclick handler that adds the functionality to the delete button */}
 							<button onClick={() => props.deleteMember(member.id)} className="button muted-button">
 								Delete
