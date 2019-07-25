@@ -46,6 +46,7 @@ Follow these steps for completing your project.
 - Give the state variable you just declared a default value. You will need to keep track of a list of team members and each team member will have several key/value pairs associated with them.
 
 - Render your list of team members
+- in other words make a card to render each members you type in.
 
 ### STEP 2 - Build your form
 
